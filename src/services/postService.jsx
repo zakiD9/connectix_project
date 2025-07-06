@@ -42,8 +42,8 @@ export const getPostById = async (postId) => {
                 Authorization: token ? `Bearer ${token}` : "",
             }
         });
-        console.log(response);
-        return response.data;
+        console.log("post by id:",response);
+        return response;
     } catch (error) {
         console.error('Error fetching post:', error);
         throw new Error(error.response?.data?.message || 'Error fetching post');

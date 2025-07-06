@@ -1,7 +1,7 @@
 import { ChatBubbleLeftEllipsisIcon, HeartIcon, ShareIcon, PaperAirplaneIcon } from '@heroicons/react/24/outline';
-import { postComment } from '../../services/commentService';
+import { postComment } from '../../../services/commentService';
 import { useState } from 'react';
-import { usePostStore } from '../../store/postStore';
+import { usePostStore } from '../../../store/postStore';
 
 
 
@@ -23,7 +23,6 @@ setComment(e.target.value);
 }
 return (
     <>
-      {/* Comment input */}
       <div className="flex px-4 py-3 border-t rounded-b-lg items-center mt-2 bg-white">
         <img
           src={userAvatar}

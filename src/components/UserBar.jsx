@@ -1,6 +1,6 @@
 import { ChatBubbleLeftEllipsisIcon, Cog6ToothIcon } from "@heroicons/react/24/outline";
 import { BellIcon } from "lucide-react";
-import ListMenu from "./MenuList";
+import ListMenu from "./PostMenuList";
 
 export default function UserBar(){
     return(

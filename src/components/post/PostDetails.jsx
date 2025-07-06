@@ -3,9 +3,9 @@ import { useCommentStore } from "../../store/commentStore";
 import { X } from "lucide-react";
 import TopOfPost from "./topofpost";
 import PostContent from "./postContent";
-import PostActions from "./postActions";
+import PostActions from "./Comments/PostComment";
 import Post from "./post";
-import CommentSection from "./commentSection";
+import CommentSection from "./Comments/commentSection";
 import { useEffect, useState } from "react";
 import { getPostById } from "../../services/postService";
 import { usePostStore } from "../../store/postStore";
@@ -22,7 +22,7 @@ useEffect(() => {
       try {
         const response = await getPostById(postId);
         setPostDetails(response.data);
-        console.log(postDetails);
+        console.log("post Details:",postDetails);
       } catch (error) {
         console.error(error);
       }
@@ -43,9 +43,10 @@ useEffect(() => {
           {/* Close Button */}
           <div>
             <TopOfPost   />
-            <PostContent text={postDetails?.title} />  
-            <CommentSection />
+            <PostContent text={postDetails?.title} image={postDetails?.media} />  
             <PostActions/>
+            <CommentSection />
+            
          </div>
         </Dialog.Content>
       </Dialog.Portal>

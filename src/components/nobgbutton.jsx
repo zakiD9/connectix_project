@@ -1,6 +1,7 @@
-function NoBgButton({ children }) {
+function NoBgButton({ children,onClick }) {
   return (
-    <a href="#" className="text-primary   text-sm font-medium hover:underline">{children}</a>
+    <div onClick={onClick}><a href="#" className="text-primary   text-sm font-medium hover:underline">{children}</a></div>
+    
   );
 }
 export default NoBgButton;

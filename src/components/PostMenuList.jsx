@@ -8,24 +8,16 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
-import { deletePost, updatePost } from "../services/postService";
+import { deletePost } from "../services/postService";
+import { usePostStore } from "../store/postStore";
 
 const ListMenu = ({SelectedPostList}) => {
+  const{setOnEdit}=usePostStore();
     const onDelete = async()=>{
   try{
     const postId=SelectedPostList
     const response = deletePost(postId);
     console.log("success");
-    return response
-  }catch(error){
-    console.log(error);
-  }
-}
-const onEdit = async()=>{
-  try{
-    const text="hhhhh";
-    const postId=SelectedPostList;
-    const response = updatePost(postId,text);
     return response
   }catch(error){
     console.log(error);
@@ -41,7 +33,7 @@ const onEdit = async()=>{
       </MenuButton>
       
         <MenuList>
-          <MenuItem onClick={onEdit}>Edit</MenuItem>
+          <MenuItem onClick={setOnEdit(true)}>Edit</MenuItem>
           <MenuItem onClick={onDelete}>Delete</MenuItem>
         </MenuList>
     </Menu>

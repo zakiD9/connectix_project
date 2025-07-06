@@ -4,7 +4,7 @@ import FollowingList from '../FollowingList';
 import ContactInformations from '../ContactInformation';
 import UserBar from '../UserBar';
 import FriendsSuggestion from '../FriendsSuggestions';
-import MenuList from '../MenuList';
+import MenuList from '../PostMenuList';
 const RightSideBar = ({variant,isMyprofile}) => {
 
 
@@ -51,7 +51,6 @@ if (variant === 'profile') {
   <aside className="fixed right-0 top-0 z-20 h-screen w-80 w-80 bg-white h-screen flex flex-col border-l border-gray-200">
     <UserBar />
     <FriendsSuggestion />
-    <MenuList/>
   </aside>
   )
 };

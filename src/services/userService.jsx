@@ -19,7 +19,7 @@ export const getUsers = async()=>{
 export const getUserInfoById = async(id)=>{
     try{
         const token = localStorage.getItem('token');
-        const response = await axios.get(`${API_URL}${id}`, {
+        const response = await axios.get(`${API_URL}${id}`,{
             headers: {
                 Authorization: token ? `Bearer ${token}` : "",
                 // ...other headers

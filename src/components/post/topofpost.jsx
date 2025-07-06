@@ -1,8 +1,7 @@
 import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
-import ListMenu from '../MenuList';
+import ListMenu from '../PostMenuList';
 
 const TopOfPost = ({ avatar="mkanch", name="ras el oued ", role="salowat salowat",SelectedPostList }) => {
-
   return(<div className="flex items-center border-b  justify-between px-4 pt-4 pb-2">
     <div className="flex items-center">
       <img
@@ -15,7 +14,7 @@ const TopOfPost = ({ avatar="mkanch", name="ras el oued ", role="salowat salowat
         <div className="text-xs text-gray-500">{role}</div>
       </div>
     </div>
-   <ListMenu SelectedPostList={SelectedPostList} />
+   <ListMenu onEdit SelectedPostList={SelectedPostList} />
   </div>);
 };
 

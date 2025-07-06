@@ -9,8 +9,7 @@ export async function getCommentsByPostId(postId) {
                 Authorization: token ? `Bearer ${token}` : "",
             }
         });
-        console.log("comments:",response);
-        return response;
+        return response.data;
     }catch(error){
         console.log(error);
     }
