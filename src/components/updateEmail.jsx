@@ -1,5 +1,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
+import Button from "./button";
+import SecondaryButton from "./SecondaryButton";
 
 const UpdateEmailDialog = ({ open, onOpenChange, currentEmail, onSave }) => {
   const [loading, setLoading] = useState(false);
@@ -36,17 +38,14 @@ const UpdateEmailDialog = ({ open, onOpenChange, currentEmail, onSave }) => {
           {error && <div className="text-red-500 text-sm mb-2">{error}</div>}
           <div className="flex justify-end gap-2 mt-4">
             <Dialog.Close asChild>
-              <button className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300" disabled={loading}>
-                Cancel
-              </button>
+              <SecondaryButton children="Cancel" onClick={onOpenChange} />
             </Dialog.Close>
-            <button
-              className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
+            <Button
               onClick={handleSave}
               disabled={loading || !email}
-            >
-              {loading ? "Saving..." : "Save"}
-            </button>
+              text={loading ? "Saving..." : "Save"}
+            />
+          
           </div>
         </Dialog.Content>
       </Dialog.Portal>

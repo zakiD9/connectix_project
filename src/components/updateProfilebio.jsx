@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { updateBio } from "../services/userService";
+import Button from "./button";
+import SecondaryButton from "./SecondaryButton";
 
 const UpdateBioPopup = ({ open, onOpenChange, currentBio, onSave }) => {
   const [bio, setBio] = useState(currentBio || "");
@@ -11,11 +13,12 @@ const UpdateBioPopup = ({ open, onOpenChange, currentBio, onSave }) => {
     setLoading(true);
     setError("");
     try {
-      await updateBio(bio);
+      const response =await updateBio(bio);
       onSave(bio);
       onOpenChange(false);
+      console.log("my bio updated:",response);
     } catch (err) {
-      setError("Failed to update bio.");
+      setError("Failed to update bio:",err);
     } finally {
       setLoading(false);
     }
@@ -31,22 +34,18 @@ const UpdateBioPopup = ({ open, onOpenChange, currentBio, onSave }) => {
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             rows={4}
-            className="w-full border rounded px-3 py-2 mb-3 resize-y"
+            className="w-full border hover:border-primary rounded-lg px-3 py-2 mb-3 resize-y"
             disabled={loading}
           />
           {error && <div className="text-red-500 text-sm mb-2">{error}</div>}
           <div className="flex justify-end gap-2 mt-4">
-            <button
+            <Button
               onClick={handleSave}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
               disabled={loading}
-            >
-              {loading ? "Saving..." : "Save"}
-            </button>
+              text={loading ? "Saving..." : "Save"}
+            />
             <Dialog.Close asChild>
-              <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300" disabled={loading}>
-                Cancel
-              </button>
+              <SecondaryButton children="Cancel" onClick={onOpenChange} />
             </Dialog.Close>
           </div>
         </Dialog.Content>

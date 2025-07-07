@@ -33,7 +33,7 @@ function Feed () {
   return (
     <div className="relative min-h-screen bg-[#F8FAFC]">
       {/* Fixed Sidebars */}
-      <SideBar activeMenu={activeMenu} onMenuSelect={handleMenuSelect} />
+      {/* <SideBar activeMenu={activeMenu} onMenuSelect={handleMenuSelect} /> */}
       <SideBarMenu activeMenu={activeMenu} onMenuSelect={handleMenuSelect} />
       <RightSideBar variant={"feed"} />
       {/* <SearchComp /> */}

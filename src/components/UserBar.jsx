@@ -11,7 +11,6 @@ export default function UserBar(){
         alt="User"
           className="w-10 h-10 rounded-full"
         />
-        <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
       </div>
       <div className="flex gap-4">
         <BellIcon className="w-6 h-6 text-gray-500 cursor-pointer" />

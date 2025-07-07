@@ -82,9 +82,9 @@ export const updateName = async (nameData) => {
         throw new Error(error.response?.data?.message || 'Error updating name');
     }
 }
-export const updateBio = async (bioData) => {
+export const updateBio = async (bio) => {
     try {
-        const response = await axios.patch(`${API_URL}update-bio`, {bioData}, {
+        const response = await axios.patch(`${API_URL}update-bio`, {bio}, {
             headers: {
                 Authorization: token ? `Bearer ${token}` : "",
             }

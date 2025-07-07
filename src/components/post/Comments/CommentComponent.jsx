@@ -43,14 +43,13 @@ export default function Comment({ comment }) {
 
       {showReplyInput && (<SendReply id={comment.id} />)}
 
-      {/* Show replies */}
       {showReplies && comment.replies?.length > 0 && (
-        <div className="ml-10 space-y-2">
-          {comment.replies.map((reply) => (
+          <div className="ml-10 space-y-2">
+         {comment.replies.map((reply) => ( 
             <Comment key={reply.id} comment={reply} /> // reusing the same component
           ))}
-        </div>
-      )}
+         </div>
+       )} 
     </div>
   );
 }

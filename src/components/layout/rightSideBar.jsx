@@ -5,7 +5,7 @@ import ContactInformations from '../ContactInformation';
 import UserBar from '../UserBar';
 import FriendsSuggestion from '../FriendsSuggestions';
 import MenuList from '../PostMenuList';
-const RightSideBar = ({variant,isMyprofile}) => {
+const RightSideBar = ({variant,isMyProfile}) => {
 
 
 
@@ -40,7 +40,7 @@ if (variant === 'profile') {
   return (
     <aside className="fixed right-0 top-0 z-20 h-screen w-80 bg-white flex flex-col border-l border-gray-200">
        <UserBar/>
-      <ContactInformations isMyprofile={isMyprofile}/>
+      <ContactInformations isMyProfile={isMyProfile}/>
       <FollowingList />
       <div className="h-6" />
     </aside>
@@ -48,7 +48,7 @@ if (variant === 'profile') {
 }
 
   return (
-  <aside className="fixed right-0 top-0 z-20 h-screen w-80 w-80 bg-white h-screen flex flex-col border-l border-gray-200">
+  <aside className="fixed right-0 top-0 h-screen w-80  bg-white flex flex-col border-l border-gray-200">
     <UserBar />
     <FriendsSuggestion />
   </aside>

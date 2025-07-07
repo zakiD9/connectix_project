@@ -4,7 +4,8 @@ import UpdateBioPopup from "./updateProfilebio";
 import { useUserStore } from "../store/userStore";
 import FollowersDialog from "./followersListModal";
 
-const ProfileComp = ({isMyprofile}) => {
+const ProfileComp = ({isMyProfile}) => {
+  console.log("ismyprofile?:",isMyProfile)
   const { updateProfileImage, updateBio } = useUserStore();
   const profileUser = useUserStore((state) => state.profileUser);
 
@@ -48,7 +49,7 @@ console.log("user:",profileUser);
             alt={profileUser.firstName}
             className="w-24 h-24 rounded-full border-4 border-white shadow"
           />
-          {isMyprofile && (<><input
+          {isMyProfile && (<><input
             type="file"
             ref={fileInputRef}
             style={{ display: "none" }}
@@ -94,7 +95,7 @@ console.log("user:",profileUser);
       <div className="mt-6">
         <div className="flex items-center justify-between gap-2 mb-1">
           <span className="font-semibold">About Me</span>
-          {isMyprofile &&(<button onClick={() => setshowBioDialog(true)} className="text-gray-400 hover:text-blue-500 p-1 rounded">
+          {isMyProfile &&(<button onClick={() => setshowBioDialog(true)} className="text-gray-400 hover:text-blue-500 p-1 rounded">
             <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path d="M12 20h9" strokeLinecap="round"/>
               <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19.5l-4 1 1-4L16.5 3.5Z"/>

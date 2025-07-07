@@ -8,10 +8,17 @@ import {
   QuestionMarkCircleIcon
 } from "@heroicons/react/24/outline";
 import Span from "../span";
+import { Navigate, useNavigate } from "react-router-dom";
+
 
 const SideBarMenu = ({ activeMenu, onMenuSelect }) => {
+  const navigate = useNavigate();
+  const LogOut = ()=>{
+    localStorage.setItem('token',null);
+    navigate(`/Login`);
+  }
   return (
-    <div className="fixed left-20 top-0 z-20 h-screen w-60 w-64 px-1 bg-white border-r h-screen flex flex-col justify-between">
+    <div className="fixed left-0 top-0 z-20 h-screen  w-80 px-1 bg-white border-r flex flex-col justify-between">
       <div className="pt-16 ">
         {/* Feed */}
         <div
@@ -116,7 +123,9 @@ const SideBarMenu = ({ activeMenu, onMenuSelect }) => {
           className="w-8 h-8 rounded-full mr-3"
         />
         <span className="flex-1 text-gray-800">Azunyan U. Wu</span>
+        <button onClick={LogOut}>
         <ArrowRightOnRectangleIcon className="w-6 h-6 text-black opacity-70 hover:opacity-100 cursor-pointer" />
+        </button>
       </div>
     </div>
   );

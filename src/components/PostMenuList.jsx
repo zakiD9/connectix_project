@@ -11,11 +11,11 @@ import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 import { deletePost } from "../services/postService";
 import { usePostStore } from "../store/postStore";
 
-const ListMenu = ({SelectedPostList}) => {
-  const{setOnEdit}=usePostStore();
+const ListMenu = ({onClick}) => {
+  const{onEdit}=usePostStore();
     const onDelete = async()=>{
   try{
-    const postId=SelectedPostList
+    const postId=onEdit;
     const response = deletePost(postId);
     console.log("success");
     return response
@@ -33,7 +33,7 @@ const ListMenu = ({SelectedPostList}) => {
       </MenuButton>
       
         <MenuList>
-          <MenuItem onClick={setOnEdit(true)}>Edit</MenuItem>
+          <MenuItem onClick={onClick}>Edit</MenuItem>
           <MenuItem onClick={onDelete}>Delete</MenuItem>
         </MenuList>
     </Menu>

@@ -12,7 +12,6 @@ import { getMe, getUserInfoById } from "../../services/userService";
 import { useUserStore } from "../../store/userStore";
 import UpdateEmailDialog from "../../components/updateEmail";
 import { getMyPosts, getUserPosts } from "../../services/postService";
-import FollowersDialog from "../../components/followersListModal";
 import { useParams } from "react-router-dom";
 
 function ProfilePage() {
@@ -32,15 +31,15 @@ const{id}=useParams();
   useEffect(() => {
   const fetchProfile = async () => {
     try {
-      if (id) {
+      const me = await getMe();
+      setUser(me);
+      if (id && id !== me.id) {
         const user = await getUserInfoById(id);
         console.log("user1:",user);
         setProfileUser(user);
         setIsMyprofile(false);
       } else {
-        const me = await getMe();
         setProfileUser(me); 
-        setUser(me);
         setIsMyprofile(true);
       }
     } catch (error) {
@@ -61,8 +60,10 @@ const{id}=useParams();
     if (id) {
       const userId=id;
       response = await getUserPosts(userId);
+      console.log("user posts:",response);
     } else {
       response = await getMyPosts();
+      console.log("Myposts:",response);
     }
     setPosts(response);
   } catch (err) {
@@ -70,12 +71,12 @@ const{id}=useParams();
   }
 };
   fetchPosts();
- },[setPosts])
+ },[id])
   return (
     <div className="relative min-h-screen bg-[#F8FAFC]">
 
       {/* Fixed Sidebars */}
-      <SideBar activeMenu={"profile"} onMenuSelect={handleMenuSelect} />
+      {/* <SideBar activeMenu={"profile"} onMenuSelect={handleMenuSelect} /> */}
       <SideBarMenu activeMenu={"profile"} onMenuSelect={handleMenuSelect} />
     <RightSideBar isMyProfile={isMyprofile} setdialogvariant={setShowEmailDialog} variant={"profile"} />
 

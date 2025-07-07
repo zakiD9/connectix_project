@@ -2,7 +2,7 @@ const RoundedInput = ({ label, type, value, onChange,placeholder,error }) => (
   <div className="flex flex-col ">
     <label className="mb-1">{label}</label>
     <input
-      className={`border p-2 w-full rounded-full hover:border-primary  focus:outline-none focus:ring-2 focus:ring-primary transition ${error ? 'border-red-500' : ''}`}
+      className={`border p-2 w-full rounded-full hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary transition ${error ? 'border-red-500' : ''}`}
         placeholder={placeholder}
       type={type}
       value={value}

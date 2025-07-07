@@ -8,7 +8,7 @@ function PostContent({ onCommentClick,text="ro7 bla dsara", hashtags=["djazayr y
   const{onEdit}=usePostStore();
   return (
     <div className="px-4 pt-5 pb-2">
-      {onEdit ? (<EditPostArea text={text} />) :(<div className="text-gray-700 text-sm mb-2">
+      {onEdit ==postId ? (<EditPostArea text={text} />) :(<div className="text-gray-700 text-sm mb-2">
         {text}
         {hashtags && (
           <span className="ml-1">
@@ -18,13 +18,18 @@ function PostContent({ onCommentClick,text="ro7 bla dsara", hashtags=["djazayr y
           </span>
         )}
       </div>)}
-      {image && (
-        <img
-          src={image?.[0]?.url}
-          alt="Post"
-          className="rounded-xl w-full object-cover mb-2"
-        />
-      )}
+      {image?.length > 0 && (
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
+    {image.map((img, index) => (
+      <img
+        key={index}
+        src={img.url}
+        alt={`Post image ${index + 1}`}
+        className="rounded-xl w-full object-cover"
+      />
+    ))}
+  </div>
+)}
       <div className="flex px-4 items-center justify-between text-gray-500 text-sm mb-2">
       <div className="flex items-center space-x-6">
         <Like postId={postId} likes={likes} />

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { updatePost } from "../services/postService";
 import { usePostStore } from "../store/postStore";
+import Button from "./button";
 
 export default function EditPostArea({text}){
     const{setOnEdit,SelectedPostList}=usePostStore();
@@ -17,27 +18,29 @@ export default function EditPostArea({text}){
   }
 }
     return(
-<div className="bg-white border rounded-lg p-4 shadow space-y-2">
+<div className="bg-white rounded-lg p-4  space-y-2">
       <textarea
         value={editedText}
         onChange={(e) => setEditedText(e.target.value)}
-        className="w-full p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-blue-300"
+        className="w-full p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-primary"
         rows={4}
       />
 
       <div className="flex justify-end gap-2">
-        <button
+        <Button
           onClick={()=>{setOnEdit(false)}}
-          className="px-4 py-2 border rounded text-gray-600 hover:bg-gray-100"
+          text="Cancel"
+          className="px-4 py-2 border rounded-full "
         >
           Cancel
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={handleOnEdit}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          text="Save"
+          
         >
           Save
-        </button>
+        </Button>
       </div>
     </div>
     )

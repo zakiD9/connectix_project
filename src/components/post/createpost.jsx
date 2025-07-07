@@ -30,7 +30,7 @@ const fileInputRef = useRef(null);
               key={idx}
               src={URL.createObjectURL(img)}
               alt={`Preview ${idx + 1}`}
-              className="w-32 h-32 object-contain rounded"
+              className="w-20 h-20 object-contain rounded-lg"
             />
           ))}
         </div>
@@ -39,6 +39,7 @@ const fileInputRef = useRef(null);
   type="file"
   accept="image/*"
   ref={fileInputRef}
+  multiple
         style={{ display: 'none' }}
   onChange={handleFilesChange}
 />
