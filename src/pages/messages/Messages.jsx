@@ -8,10 +8,12 @@ import { useAppNavigation } from "../../store/navigationApp";
 import ChatList from "../../components/messages/MessagesList/ChatList";
 import MessageSection from "../../components/messages/MessageSection/MessageSection";
 import { useState } from "react";
+import UserInfoChatDialog from "../../components/UserChatInfoDialog";
 
 const MessagesPage = () => {
 const[selectedChat,setSelectedChat]=useState(null);
-
+const [showUserChatDetails,setShowUserChatDetails]=useState(false);
+console.log(showUserChatDetails)
   const{onMenuSelect}=usePostStore();
    const {navigateTo}=useAppNavigation();
 const handleMenuSelect = (menu) => {
@@ -23,8 +25,9 @@ const handleMenuSelect = (menu) => {
       <SideBar activeMenu="messages" onMenuSelect={handleMenuSelect} />
       <div className="ml-20 flex mt-3">
         <ChatList selectedChat={selectedChat} setSelectedChat={setSelectedChat}/>
-        <MessageSection selectedChat={selectedChat}/>
+        <MessageSection setShowUserChatDetails={setShowUserChatDetails} selectedChat={selectedChat}/>
       </div>
+      <UserInfoChatDialog isOpen={showUserChatDetails} onClose={()=>setShowUserChatDetails(false)} />
     </div>
   );
 };
