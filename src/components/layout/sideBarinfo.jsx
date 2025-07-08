@@ -40,24 +40,6 @@ const SideBarMenu = ({ activeMenu, onMenuSelect }) => {
           <Span>10</Span>
         </div>
         {/* Followers */}
-        <div
-          className={`flex items-center px-6 py-4 cursor-pointer hover:bg-blue-50 rounded-lg mb-1 ${
-            activeMenu === "followers" ? "bg-blue-50 text-primary font-semibold" : ""
-          }`}
-          onClick={() => onMenuSelect("followers")}
-        >
-          <span className="mr-3">
-            <UserGroupIcon
-              className={`w-7 h-7 ${
-                activeMenu === "followers"
-                  ? "text-primary"
-                  : "text-gray-500"
-              }`}
-            />
-          </span>
-          <span className="flex-1">Followers</span>
-          <Span>2</Span>
-        </div>
         {/* Messages */}
         <div
           className={`flex items-center px-6 py-4 cursor-pointer hover:bg-blue-50 rounded-lg mb-1 ${

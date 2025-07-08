@@ -1,7 +1,7 @@
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { useUserStore } from "../store/userStore";
 
-export default function ContactInformations({isMyProfile}){
+export default function ContactInformations({isMyProfile=true}){
     const setShowEmailDialog = useUserStore((state) => state.setShowEmailDialog);
     return(
         <div className="px-6 pt-2 pb-4">

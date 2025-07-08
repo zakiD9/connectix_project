@@ -12,11 +12,14 @@ import { useCommentStore } from "../../store/commentStore";
 import CommentPopup from "../../components/post/PostDetails";
 import PostDetailsPopup from "../../components/post/PostDetails";
 import SearchComp from "../search/searchPage";
+import { useSearchStore } from "../../store/searchStore";
+import SearchComponent from "../../components/SearchComponent";
 
 function Feed () {
   const {fetchPosts,posts,activeMenu,onMenuSelect,selectedPost, setSelectedPost} = usePostStore();
   const openCommentModal = useCommentStore((state) => state.openCommentModal);
   const [selectedPostList,setSelectedPostList]=useState(null);
+  const {results}= useSearchStore();
   
   console.log("the id of selected post:",selectedPost);
   const {navigateTo}=useAppNavigation();
@@ -32,15 +35,11 @@ function Feed () {
   console.log("list:",selectedPostList);
   return (
     <div className="relative min-h-screen bg-[#F8FAFC]">
-      {/* Fixed Sidebars */}
-      {/* <SideBar activeMenu={activeMenu} onMenuSelect={handleMenuSelect} /> */}
       <SideBarMenu activeMenu={activeMenu} onMenuSelect={handleMenuSelect} />
       <RightSideBar variant={"feed"} />
-      {/* <SearchComp /> */}
-      {/* Main Content */}
       <div className="ml-[20rem] mr-[20rem]">
         <NavBar/>
-          <div className="flex-1 flex-col justify-center items-start px-5 py-4">
+          {results.length ? (<SearchComponent />) : (<div className="flex-1 flex-col justify-center items-start px-5 py-4">
             <div className="w-full mb-4">
               <MakePost />
               
@@ -52,6 +51,7 @@ function Feed () {
   }} onSelectpostList={()=>setSelectedPostList(post.id)} SelectedPostList={selectedPostList} />
             ))}
           </div>
+      )}
       </div>
       {selectedPost && (
   <PostDetailsPopup

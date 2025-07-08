@@ -1,32 +1,32 @@
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import Message from "./Message";
 import ChatRoundedInput from "../../ChatInput";
-import { useSocketStore } from "../../../store/useSocketStore";
+// import { useSocketStore } from "../../../store/useSocketStore";
 import { useEffect, useState } from "react";
-import socket from "../../../utils/socket";
+// import socket from "../../../utils/socket";
 
 
 
 export default function ChatSpace(){
     const [input,setInput]=useState('');
-const messages = useSocketStore((s) => s.messages);
-const addMessage = useSocketStore((s) => s.addMessage);
-const sendMessage = useSocketStore((s) => s.sendMessage);
+// const messages = useSocketStore((s) => s.messages);
+// const addMessage = useSocketStore((s) => s.addMessage);
+// const sendMessage = useSocketStore((s) => s.sendMessage);
  
 
-    useEffect(()=>{
-        socket.on('receive_message',(data)=>{
-            addMessage(data);
-        });
+//     useEffect(()=>{
+//         socket.on('receive_message',(data)=>{
+//             addMessage(data);
+//         });
 
-    return()=>{
-        socket.off('receive_message');
-    };
-    },[]);
+//     return()=>{
+//         socket.off('receive_message');
+//     };
+//     },[]);
 
       const handleSend = () => {
-    if (input.trim() === '') return;
-    sendMessage(input);
+//     if (input.trim() === '') return;
+//     sendMessage(input);
     setInput('');
   };
 

@@ -13,18 +13,20 @@ import { useUserStore } from "../../store/userStore";
 import UpdateEmailDialog from "../../components/updateEmail";
 import { getMyPosts, getUserPosts } from "../../services/postService";
 import { useParams } from "react-router-dom";
+import { useSearchStore } from "../../store/searchStore";
+import SearchComponent from "../../components/SearchComponent";
 
 function ProfilePage() {
   const { onMenuSelect,setSelectedPost } = usePostStore();
   const setUser = useUserStore((state) => state.setUser);
 const setProfileUser = useUserStore((state) => state.setProfileUser);
-
   const [selectedPostList,setSelectedPostList]=useState(null);
   const { navigateTo } = useAppNavigation();
   const showEmailDialog = useUserStore((state) => state.showEmailDialog);
 const setShowEmailDialog = useUserStore((state) => state.setShowEmailDialog);
 const [posts,setPosts]=useState(null);
 const [isMyprofile,setIsMyprofile]=useState(true);
+const{results}=useSearchStore();
 
 const{id}=useParams();
 
@@ -83,13 +85,13 @@ const{id}=useParams();
       {/* Main Content */}
       <div className="ml-[20rem] mr-[20rem]">
         <NavBar />
-        <div className="flex-1 flex-col justify-center items-start px-5 py-4">
+        {results.length>0 ? (<SearchComponent />) : (<div className="flex-1 flex-col justify-center items-start px-5 py-4">
           <ProfileComp isMyProfile={isMyprofile} /> {/* ProfileComp will get user from store */}
             {isMyprofile && (<div className="w-full mb-4"><MakePost /></div>)}
           {(posts || []).map((post) => (
             <Post key={post.id} post={post} onCommentClick={()=>{setSelectedPost(post.id)}} onSelectpostList={()=>setSelectedPostList(post.id)} SelectedPostList={selectedPostList} />
           ))}
-        </div>
+        </div>)}
         <div className="flex justify-end w-full mb-4">
 
 </div>

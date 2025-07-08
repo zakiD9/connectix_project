@@ -18,19 +18,6 @@ const SideBar = ({ activeMenu, onMenuSelect }) => {
             }`}
           />
         </div>
-        {/* Friends */}
-        <div
-          className={`flex items-center justify-center w-12 h-12 cursor-pointer ${
-            activeMenu === 'followers' ? 'bg-blue-50' : ''
-          } rounded-xl`}
-          onClick={() => onMenuSelect('followers')}
-        >
-          <UserGroupIcon
-            className={`w-7 h-7 ${
-              activeMenu === 'followers' ? 'text-primary' : 'text-gray-400'
-            }`}
-          />
-        </div>
         {/* Messages */}
         <div
           className={`flex items-center justify-center w-12 h-12 cursor-pointer ${

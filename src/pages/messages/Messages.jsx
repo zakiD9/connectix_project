@@ -1,14 +1,13 @@
 import SideBar from "../../components/layout/SideBar";
 import SideBarMenu from "../../components/layout/sideBarinfo";
 import RightSideBar from "../../components/layout/RightSideBar";
-
-import ChatComponent from "../../components/ChatComponent"; // Move it to its own file if needed
 import { usePostStore } from "../../store/postStore";
 import { useAppNavigation } from "../../store/navigationApp";
 import ChatList from "../../components/messages/MessagesList/ChatList";
 import MessageSection from "../../components/messages/MessageSection/MessageSection";
 import { useState } from "react";
 import UserInfoChatDialog from "../../components/UserChatInfoDialog";
+import NavBar from "../../components/layout/navBar";
 
 const MessagesPage = () => {
 const[selectedChat,setSelectedChat]=useState(null);
@@ -23,6 +22,11 @@ const handleMenuSelect = (menu) => {
   return (
     <div className="sticky min-h-screen bg-[#F8FAFC] w-full">
       <SideBar activeMenu="messages" onMenuSelect={handleMenuSelect} />
+      <div className="ml-20">
+        <NavBar />
+        
+        </div>
+      
       <div className="ml-20 flex mt-3">
         <ChatList selectedChat={selectedChat} setSelectedChat={setSelectedChat}/>
         <MessageSection setShowUserChatDetails={setShowUserChatDetails} selectedChat={selectedChat}/>

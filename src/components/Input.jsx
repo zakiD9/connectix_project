@@ -1,4 +1,4 @@
-const Input = ({ label, type, value, onChange,placeholder,error }) => (
+const Input = ({ label, type, value, onChange,placeholder,error ,disabled=false }) => (
   <div className="flex flex-col ">
     <label className="mb-1">{label}</label>
     <input
@@ -7,6 +7,7 @@ const Input = ({ label, type, value, onChange,placeholder,error }) => (
       type={type}
       value={value}
       onChange={onChange}
+      disabled={disabled}
     />
     {error && (
       <div className="flex items-center mt-1 text-red-500 text-sm">
