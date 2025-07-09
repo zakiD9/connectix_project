@@ -10,6 +10,7 @@ import ConfirmEmail from './pages/auth/ConfirmEmail';
 import NewPassword from './pages/auth/resetPassword';
 import Messages from './pages/messages/Messages';
 import SettingsPage from './pages/Settings';
+import SupportPage from './pages/SupportPage';
 
 function App() { 
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route path="/confirm-email" element={<ConfirmEmail />} />
       <Route path="/Messages" element={<Messages/>} />
       <Route path="/Settings" element={<SettingsPage />} />
+      <Route path="/Support" element={<SupportPage />} />
       {/* Add more routes as needed */}
     </Routes>
   );

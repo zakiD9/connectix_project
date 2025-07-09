@@ -11,13 +11,12 @@ export function useAppNavigation() {
       case "profile":
         navigate("/profile");
         break;
-      case "followers":
-        navigate("/followers");
-        break;
       case "messages":
         navigate("/messages");
         break;
-      // Add more cases as needed
+        case "Support":
+        navigate("/Support");
+        break;
       default:
         break;
     }

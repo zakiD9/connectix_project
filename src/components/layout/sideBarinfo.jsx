@@ -82,14 +82,14 @@ const SideBarMenu = ({ activeMenu, onMenuSelect }) => {
         {/* Help & Support */}
         <div
           className={`flex items-center px-6 py-4 cursor-pointer hover:bg-blue-50 rounded-lg ${
-            activeMenu === "help" ? "bg-blue-50 text-primary font-semibold" : ""
+            activeMenu === "Support" ? "bg-blue-50 text-primary font-semibold" : ""
           }`}
-          onClick={() => onMenuSelect("help")}
+          onClick={() => onMenuSelect("Support")}
         >
           <span className="mr-3">
             <QuestionMarkCircleIcon
               className={`w-7 h-7 ${
-                activeMenu === "help"
+                activeMenu === "Support"
                   ? "text-primary"
                   : "text-gray-500"
               }`}

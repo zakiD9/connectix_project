@@ -71,7 +71,7 @@ export const updateProfileImage = async (file) => {
 };
 export const updateName = async (nameData) => {
     try {
-        const response = await axios.post(`${API_URL}update-name`, nameData, {
+        const response = await axios.patch(`${API_URL}update-name`, nameData, {
             headers: {
                 Authorization: token ? `Bearer ${token}` : "",
             }
@@ -98,7 +98,7 @@ export const updateBio = async (bio) => {
 }
 export const updatePassword = async (passwordData) => {
     try {
-        const response = await axios.post(`${API_URL}update-password`, passwordData, {
+        const response = await axios.patch(`${API_URL}me/change-password`, passwordData, {
             headers: {
                 Authorization: token ? `Bearer ${token}` : "",
             }

@@ -76,13 +76,8 @@ const{id}=useParams();
  },[id])
   return (
     <div className="relative min-h-screen bg-[#F8FAFC]">
-
-      {/* Fixed Sidebars */}
-      {/* <SideBar activeMenu={"profile"} onMenuSelect={handleMenuSelect} /> */}
       <SideBarMenu activeMenu={"profile"} onMenuSelect={handleMenuSelect} />
     <RightSideBar isMyProfile={isMyprofile} setdialogvariant={setShowEmailDialog} variant={"profile"} />
-
-      {/* Main Content */}
       <div className="ml-[20rem] mr-[20rem]">
         <NavBar />
         {results.length>0 ? (<SearchComponent />) : (<div className="flex-1 flex-col justify-center items-start px-5 py-4">
