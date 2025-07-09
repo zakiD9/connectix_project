@@ -2,6 +2,7 @@ import { ChatBubbleLeftEllipsisIcon, Cog6ToothIcon } from "@heroicons/react/24/o
 import { BellIcon } from "lucide-react";
 import ListMenu from "./PostMenuList";
 import { useNavigate } from "react-router-dom";
+import NotificationDropdown from "./Notifications/NotificationComponent";
 
 export default function UserBar(){
   const navigate =useNavigate();
@@ -15,7 +16,7 @@ export default function UserBar(){
         />
       </div>
       <div className="flex gap-4">
-        <BellIcon className="w-6 h-6 text-gray-500 cursor-pointer" />
+        <NotificationDropdown />
         <ChatBubbleLeftEllipsisIcon className="w-6 h-6 text-gray-500 cursor-pointer" />
         <Cog6ToothIcon onClick={()=>{navigate("/Settings")}} className="w-6 h-6 text-gray-500 cursor-pointer" />
       </div>
