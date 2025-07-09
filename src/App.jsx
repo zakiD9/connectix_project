@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './pages/NotFound';
-import Signup from './pages/auth/SignUp';
+import Signup from './pages/auth/Signup';
 import ResetPass from './pages/auth/ResetPassrequest';
 import Feed from './pages/feed/Feed';
 import ProfilePage from './pages/profile/ProfilePage';
 import Register from './pages/auth/Register';
-import Login from './pages/auth/LogIn'
+import Login from './pages/auth/Login'
 import ConfirmEmail from './pages/auth/ConfirmEmail';
 import NewPassword from './pages/auth/resetPassword';
 import Messages from './pages/messages/Messages';
