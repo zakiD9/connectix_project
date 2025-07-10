@@ -1,115 +1,62 @@
 import {
-  ArrowRightOnRectangleIcon,
-  ChatBubbleLeftEllipsisIcon,
   HomeIcon,
-  UserGroupIcon,
   UserIcon,
   EnvelopeIcon,
-  QuestionMarkCircleIcon
+  QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 import Span from "../span";
-import { Navigate, useNavigate } from "react-router-dom";
-
+import LogOut from "../LogOutButton";
 
 const SideBarMenu = ({ activeMenu, onMenuSelect }) => {
-  const navigate = useNavigate();
-  const LogOut = ()=>{
-    localStorage.setItem('token',null);
-    navigate(`/Login`);
-  }
   return (
-    <div className="fixed left-0 top-0 z-20 h-screen  w-80 px-1 bg-white border-r flex flex-col justify-between">
-      <div className="pt-16 ">
-        {/* Feed */}
-        <div
-          className={`flex items-center px-6 py-4 cursor-pointer hover:bg-blue-50 rounded-lg mb-1 ${
-            activeMenu === "feed" ? "bg-blue-50 text-primary font-semibold" : ""
-          }`}
-          onClick={() => onMenuSelect("feed")}
-        >
-          <span className="mr-3">
-            <HomeIcon
-              className={`w-7 h-7 ${
-                activeMenu === "feed"
-                  ? "text-primary"
-                  : "text-gray-500"
-              }`}
-            />
-          </span>
-          <span className="flex-1">Feed</span>
-          <Span>10</Span>
-        </div>
-        {/* Followers */}
-        {/* Messages */}
-        <div
-          className={`flex items-center px-6 py-4 cursor-pointer hover:bg-blue-50 rounded-lg mb-1 ${
-            activeMenu === "messages" ? "bg-blue-50 text-primary font-semibold" : ""
-          }`}
-          onClick={() => onMenuSelect("messages")}
-        >
-          <span className="mr-3 relative">
-            <EnvelopeIcon
-              className={`w-7 h-7 ${
-                activeMenu === "messages"
-                  ? "text-primary"
-                  : "text-gray-500"
-              }`}
-            />
-            {/* Notification badge */}
-            
-          </span>
-          <span className="flex-1">Messages</span>
-          <Span>2</Span>
-        </div>
-        {/* Profile */}
-        <div
-          className={`flex items-center px-6 py-4 cursor-pointer hover:bg-blue-50 rounded-lg mb-1 ${
-            activeMenu === "profile" ? "bg-blue-50 text-primary font-semibold" : ""
-          }`}
-          onClick={() => onMenuSelect("profile")}
-        >
-          <span className="mr-3">
-            <UserIcon
-              className={`w-7 h-7 ${
-                activeMenu === "profile"
-                  ? "text-primary"
-                  : "text-gray-500"
-              }`}
-            />
-          </span>
-          <span className="flex-1">Profile</span>
-        </div>
-        {/* Help & Support */}
-        <div
-          className={`flex items-center px-6 py-4 cursor-pointer hover:bg-blue-50 rounded-lg ${
-            activeMenu === "Support" ? "bg-blue-50 text-primary font-semibold" : ""
-          }`}
-          onClick={() => onMenuSelect("Support")}
-        >
-          <span className="mr-3">
-            <QuestionMarkCircleIcon
-              className={`w-7 h-7 ${
-                activeMenu === "Support"
-                  ? "text-primary"
-                  : "text-gray-500"
-              }`}
-            />
-          </span>
-          <span className="flex-1">Help & Support</span>
-        </div>
+    <motion.div
+      initial={{ x: -80, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="fixed left-0 top-0 z-20 h-screen w-80 px-1 bg-white border-r flex flex-col justify-between"
+    >
+      {/* Menu items */}
+      <div className="pt-16">
+        {/* Reusable menu item */}
+        {[
+          { key: "feed", label: "Feed", Icon: HomeIcon, badge: 10 },
+          { key: "messages", label: "Messages", Icon: EnvelopeIcon, badge: 2 },
+          { key: "profile", label: "Profile", Icon: UserIcon },
+          { key: "Support", label: "Help & Support", Icon: QuestionMarkCircleIcon },
+        ].map(({ key, label, Icon, badge }) => (
+          <motion.div
+            key={key}
+            whileHover={{ scale: 1.01 }}
+            className={`transition-all duration-200 flex items-center px-6 py-4 cursor-pointer hover:bg-blue-50 rounded-lg mb-1 ${
+              activeMenu === key ? "bg-blue-50 text-primary font-semibold" : ""
+            }`}
+            onClick={() => onMenuSelect(key)}
+          >
+            <span className="mr-3">
+              <Icon
+                className={`w-7 h-7 transition-colors ${
+                  activeMenu === key ? "text-primary" : "text-gray-500"
+                }`}
+              />
+            </span>
+            <span className="flex-1">{label}</span>
+            {badge !== undefined && <Span>{badge}</Span>}
+          </motion.div>
+        ))}
       </div>
-      <div className="flex items-center px-6 py-4 border-t ">
+
+      {/* Footer */}
+      <div className="flex items-center px-6 py-4 border-t">
         <img
           src="https://randomuser.me/api/portraits/men/32.jpg"
           alt="User"
           className="w-8 h-8 rounded-full mr-3"
         />
         <span className="flex-1 text-gray-800">Azunyan U. Wu</span>
-        <button onClick={LogOut}>
-        <ArrowRightOnRectangleIcon className="w-6 h-6 text-black opacity-70 hover:opacity-100 cursor-pointer" />
-        </button>
+        <LogOut />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

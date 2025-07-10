@@ -11,7 +11,7 @@ import ChatSpace from "./ChatSpace";
 
 export default function MessageSection({selectedChat,setShowUserChatDetails}){
     return(
-        <div className="w-3/4 h-screen p-3 rounded-lg mr-4 flex flex-col bg-white">
+        <div className="w-3/4 shadow h-screen p-3 rounded-lg mr-4 flex flex-col bg-white">
             <MessageHeader setShowUserChatDetails={setShowUserChatDetails}/>
             <ChatSpace />
         </div>

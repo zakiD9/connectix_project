@@ -9,7 +9,7 @@ import UserChatComp from "./UserChatComp";
 export default function ChatList({setSelectedChat,selectedChat}){
 
     return(
-        <div className="mx-4 p-3 rounded-lg h-screen  bg-white flex-col w-1/4">
+        <div className="mx-4 p-3 rounded-lg h-screen shadow  bg-white flex-col w-1/4">
         <div className="flex justify-between p-2">
   <div>
     <h1 className="text-lg font-semibold text-gray-900">Message</h1>

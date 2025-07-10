@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import NoBgButton from "../nobgbutton";
 import NotificationCard from "./NotifCard";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 const NotificationDropdown = () => {
   const [open, setOpen] = useState(false);
@@ -25,17 +27,21 @@ const NotificationDropdown = () => {
   ];
   return (
     <div className="relative">
-      <button onClick={() => setOpen(!open)} className="relative">
-        <BellIcon className="w-7 h-7 text-gray-700" />
+      <button title="Notifications" onClick={() => setOpen(!open)} >
+        <BellIcon className="w-6 h-6 text-gray-500 hover:text-primary cursor-pointer transition-colors" />
 
         <span className="absolute top-0 right-0 inline-block w-2 h-2 bg-red-500 rounded-full" />
       </button>
-
+<AnimatePresence>
       {open && (
-        <div
-          ref={dropdownRef}
-          className="absolute right-0 mt-2 w-[450px] max-h-[500px] bg-white rounded-xl shadow-xl border z-50 overflow-y-auto"
-        >
+        <motion.div
+      ref={dropdownRef}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.2 }}
+      className="absolute right-0 mt-2 w-[450px] max-h-[500px] bg-white rounded-xl shadow-xl border z-50 overflow-y-auto"
+    >
 
           <div className="flex justify-between items-center px-4 py-3 border-b">
             <h3 className="text-base font-semibold">Notification</h3>
@@ -65,8 +71,9 @@ const NotificationDropdown = () => {
             {[1,2,3].map((notification)=>(<NotificationCard key={notification} />))}
 
           </div>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </div>
   );
 };

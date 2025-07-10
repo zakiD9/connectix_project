@@ -4,6 +4,7 @@ import RoundedInput from '../roundedinput';
 import { searchUsers } from '../../services/userService';
 import { useSearchStore } from '../../store/searchStore';
 import { useEffect } from 'react';
+import UserBar from '../UserBar';
 
 const NavBar = () => {
 const {query,setResults,setError,setLoading,setQuery}=useSearchStore();
