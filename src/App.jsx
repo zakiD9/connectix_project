@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './pages/NotFound';
-import Signup from './pages/auth/Signup.jsx';
+import Signup from './pages/auth/SignUp.jsx';
 import ResetPass from './pages/auth/ResetPassrequest.jsx';
 import Feed from './pages/feed/Feed.jsx';
 import ProfilePage from './pages/profile/ProfilePage.jsx';
