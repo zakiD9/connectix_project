@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './pages/NotFound';
-import Signup from './pages/auth/SignUp.jsx';
 import ResetPass from './pages/auth/ResetPassrequest.jsx';
 import Feed from './pages/feed/Feed.jsx';
 import ProfilePage from './pages/profile/ProfilePage.jsx';
@@ -11,6 +10,7 @@ import NewPassword from './pages/auth/resetPassword.jsx';
 import Messages from './pages/messages/Messages.jsx';
 import SettingsPage from './pages/Settings.jsx';
 import SupportPage from './pages/SupportPage.jsx';
+import Signup from './pages/auth/Signup.jsx';
 
 function App() { 
   return (
