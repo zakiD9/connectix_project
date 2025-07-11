@@ -1,16 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './pages/NotFound';
-import Signup from './pages/auth/Signup';
-import ResetPass from './pages/auth/ResetPassrequest';
-import Feed from './pages/feed/Feed';
-import ProfilePage from './pages/profile/ProfilePage';
-import Register from './pages/auth/Register';
+import Signup from './pages/auth/Signup.jsx';
+import ResetPass from './pages/auth/ResetPassrequest.jsx';
+import Feed from './pages/feed/Feed.jsx';
+import ProfilePage from './pages/profile/ProfilePage.jsx';
+import Register from './pages/auth/Register.jsx';
 import Login from './pages/auth/Login.jsx';
-import ConfirmEmail from './pages/auth/ConfirmEmail';
-import NewPassword from './pages/auth/resetPassword';
-import Messages from './pages/messages/Messages';
-import SettingsPage from './pages/Settings';
-import SupportPage from './pages/SupportPage';
+import ConfirmEmail from './pages/auth/ConfirmEmail.jsx';
+import NewPassword from './pages/auth/resetPassword.jsx';
+import Messages from './pages/messages/Messages.jsx';
+import SettingsPage from './pages/Settings.jsx';
+import SupportPage from './pages/SupportPage.jsx';
 
 function App() { 
   return (
