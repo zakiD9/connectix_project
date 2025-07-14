@@ -10,7 +10,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { usePostStore } from "../store/postStore";
 import { useAppNavigation } from "../store/navigationApp";
-import SideBarMenu from "../components/layout/SideBarinfo";
+import SideBarMenu from "../components/layout/sideBarinfo";
 
 const faqs = [
   {

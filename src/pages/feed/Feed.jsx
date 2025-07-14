@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SideBarMenu from "../../components/layout/SideBarinfo";
+import SideBarMenu from "../../components/layout/sideBarinfo";
 import NavBar from "../../components/layout/navBar";
 import RightSideBar from "../../components/layout/RightSideBar";
 import Post from "../../components/post/post";
