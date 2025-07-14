@@ -3,7 +3,6 @@ import NotFound from './pages/NotFound';
 import ResetPass from './pages/auth/ResetPassrequest.jsx';
 import Feed from './pages/feed/Feed.jsx';
 import ProfilePage from './pages/profile/ProfilePage.jsx';
-import Register from './pages/auth/Register.jsx';
 import Login from './pages/auth/Login.jsx';
 import ConfirmEmail from './pages/auth/ConfirmEmail.jsx';
 import NewPassword from './pages/auth/resetPassword.jsx';
@@ -42,7 +41,6 @@ if (isLoading) return <div>Loading...</div>;
       <Route path="/" element={<ProtectedRoute><Feed /></ProtectedRoute>} /> 
       <Route path="/profile/:id" element={<ProtectedRoute><ProfilePage/></ProtectedRoute>} />
       <Route path="/profile" element={<ProtectedRoute><ProfilePage/></ProtectedRoute>} />
-      <Route path="/Register" element={<Register/>} />
       <Route path="/confirm-email" element={<ConfirmEmail />} />
       <Route path="/Messages" element={<ProtectedRoute><Messages/></ProtectedRoute>} />
       <Route path="/Settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
