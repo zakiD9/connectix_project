@@ -37,7 +37,7 @@ if (isLoading) return <div>Loading...</div>;
     <Routes>
       <Route path="*" element={<NotFound />} />
       <Route path="/Login" element={<Login />} />
-      <Route path="/Signup" element={<Signup />} />
+      <Route path="/SignUp" element={<Signup />} />
       <Route path="/ForgetPassword" element={<ResetPass/>}/>
       <Route path="/resetnewpassword" element={<NewPassword/>}/>
       <Route path="/" element={<ProtectedRoute><Feed /></ProtectedRoute>} /> 
