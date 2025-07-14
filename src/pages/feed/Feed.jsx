@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SideBarMenu from "../../components/layout/sideBarinfo";
 import NavBar from "../../components/layout/navBar";
-import RightSideBar from "../../components/layout/RightSideBar";
+import RightSideBar from "../../components/layout/rightSideBar";
 import Post from "../../components/post/post";
 import MakePost from "../../components/post/createpost";
 import { usePostStore } from "../../store/postStore";

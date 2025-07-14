@@ -1,6 +1,6 @@
 import SideBar from "../../components/layout/SideBar";
 import SideBarMenu from "../../components/layout/sideBarinfo";
-import RightSideBar from "../../components/layout/RightSideBar";
+import RightSideBar from "../../components/layout/rightSideBar";
 import ProfileComp from "../../components/Profilecomp";
 import MakePost from "../../components/post/createpost";
 import Post from "../../components/post/post";
