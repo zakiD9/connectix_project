@@ -1,4 +1,4 @@
-import SideBar from "../../components/layout/SideBar";
+import SideBar from "../../components/layout/sideBar";
 import { usePostStore } from "../../store/postStore";
 import { useAppNavigation } from "../../store/navigationApp";
 import ChatList from "../../components/messages/MessagesList/ChatList";

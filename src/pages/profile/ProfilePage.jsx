@@ -1,4 +1,4 @@
-import SideBar from "../../components/layout/SideBar";
+import SideBar from "../../components/layout/sideBar";
 import SideBarMenu from "../../components/layout/sideBarinfo";
 import RightSideBar from "../../components/layout/rightSideBar";
 import ProfileComp from "../../components/Profilecomp";
