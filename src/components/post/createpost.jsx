@@ -27,8 +27,6 @@ const handlePost = async () => {
     setLoading(false);
   }
 };
-
-
   const handleImageButtonClick = () => {
     fileInputRef.current.click();
   }

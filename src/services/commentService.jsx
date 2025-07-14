@@ -49,10 +49,16 @@ export async function deleteComment(commentId) {
     }
   
 }
-export async function PostreplyComment(id,content) {
+export async function PostreplyComment(id,content,postId) {
     try{
         const token = localStorage.getItem('token');
-        const response = await axios.post(`${API_URL}${id}/reply`,{content}, {
+        const body = {
+            id:id,
+      content: content,
+      postId: postId,
+      file: null
+    };
+        const response = await axios.post(`${API_URL}${id}/reply`,body, {
             headers: {
                 Authorization: token ? `Bearer ${token}` : "",
             }

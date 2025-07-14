@@ -3,26 +3,15 @@
 // import { usePostStore } from "../../../store/postStore";
 import { useEffect, useState } from "react";
 import Comment from "./CommentComponent";
-import { getCommentsByPostId } from "../../../services/commentService";
 import { usePostStore } from "../../../store/postStore";
 
 export default function CommentSection(){
-    const [comments, setComments] = useState([]);
-    const{selectedPost}= usePostStore();
+    const{selectedPost ,fetchComments,comments}= usePostStore();
     const [visibleReplies,setVisibleReplies]=useState({}); 
 
    useEffect(() => {
-    async function fetchComments() {
-      try {
-        const response = await getCommentsByPostId(selectedPost);
-        setComments(response);
-      } catch {
-        setComments([]);
-      }
-    }
-    fetchComments();
-  }, [selectedPost]);
-  console.log(selectedPost);
+    fetchComments(selectedPost)
+  }, [fetchComments]);
 
    const toggleReplies = (commentId) => {
     setVisibleReplies((prev) => ({

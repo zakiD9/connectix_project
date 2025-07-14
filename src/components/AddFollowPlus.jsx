@@ -7,7 +7,7 @@ export default function AddFollowPlus({ followed = false, onToggle }) {
   const handleClick = () => {
     setClicked(true);
     if (onToggle) onToggle();
-    setTimeout(() => setClicked(false), 200); // Reset animation
+    setTimeout(() => setClicked(false), 200);
   };
 
   return (

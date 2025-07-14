@@ -9,6 +9,11 @@ export const useAuthStore = create((set) => ({
   firstName:'',
   lastName:'',
   birthDate:'',
+  user: null,
+setUser: (user) => set({user, isAuthenticated: true }),
+isAuthenticated: false,
+isLoading: true,
+setLoading: (value) => set({ isLoading: value }),
   setFirstName: (firstName) => set({ firstName }),
   setLastName: (lastName) => set({ lastName }),
   setBirthDate: (birthDate) => set({ birthDate }),
@@ -32,7 +37,7 @@ export const useAuthStore = create((set) => ({
     set((state) => ({
       errors: { ...state.errors, emailError: '', passwordError: '', authError: '', successMessage: '' }
     }));
-
+const { setUser } = useAuthStore.getState();
     const { email, password } = useAuthStore.getState();
     let hasError = false;
 
@@ -52,10 +57,12 @@ export const useAuthStore = create((set) => ({
 
     try {
       const response = await LoginApi({ emailOrUsername: email, password });
-      // handle success (e.g., redirect)
       console.log('Login successful:', response);
       localStorage.setItem('token', response.data.accessToken);
-      set({ successMessage: response.data.message || "Login successful!" }); 
+      setUser({ token: response.data.accessToken });
+      set({ successMessage: response.data.message || "Login successful!",
+            isAuthenticated: true,
+       }); 
     }catch (error) {
       console.log("API error response:", error.response?.data?.error?.name);
   const backendError = error.response?.data?.error?.name;
@@ -77,7 +84,7 @@ export const useAuthStore = create((set) => ({
   set((state)=>({
     errors: { ...state.errors, authError: '' }
   }));
-    const { email, password, confirmPassword, username } = useAuthStore.getState();
+    const { email, password, username } = useAuthStore.getState();
 
     let hasError = false;
     if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
@@ -128,5 +135,10 @@ export const useAuthStore = create((set) => ({
       }));
       console.error('Password reset failed:', error);
     }
-  }
+  },
+  logout: () => {
+  localStorage.removeItem('token');
+  set({ user: null, isAuthenticated: false });
+  
+},
 }));

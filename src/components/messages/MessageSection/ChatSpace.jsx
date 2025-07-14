@@ -46,7 +46,7 @@ export default function ChatSpace() {
         <div className="flex-1">
           <ChatRoundedInput
             value={input}
-            onChange={(e) => setInput(e.target.value)} // fixed this line
+            onChange={(e) => setInput(e.target.value)}
             placeholder="Type a message"
           />
         </div>

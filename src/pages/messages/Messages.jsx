@@ -10,7 +10,6 @@ import UserInfoChatDialog from "../../components/UserChatInfoDialog";
 import NavBar from "../../components/layout/navBar";
 
 const MessagesPage = () => {
-const[selectedChat,setSelectedChat]=useState(null);
 const [showUserChatDetails,setShowUserChatDetails]=useState(false);
 console.log(showUserChatDetails)
   const{onMenuSelect}=usePostStore();
@@ -24,12 +23,11 @@ const handleMenuSelect = (menu) => {
       <SideBar activeMenu="messages" onMenuSelect={handleMenuSelect} />
       <div className="ml-20">
         <NavBar />
-        
         </div>
       
       <div className="ml-20 flex mt-3">
-        <ChatList selectedChat={selectedChat} setSelectedChat={setSelectedChat}/>
-        <MessageSection setShowUserChatDetails={setShowUserChatDetails} selectedChat={selectedChat}/>
+        <ChatList />
+        <MessageSection setShowUserChatDetails={setShowUserChatDetails}/>
       </div>
       <UserInfoChatDialog isOpen={showUserChatDetails} onClose={()=>setShowUserChatDetails(false)} />
     </div>

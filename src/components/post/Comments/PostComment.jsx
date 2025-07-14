@@ -17,7 +17,7 @@ const PostActions = ({ userAvatar = "https://ui-avatars.com/api/?name=User" }) =
       const postId = selectedPost;
       const response = await postComment(postId, comment);
       console.log("Comment success:", response);
-      setComment(""); // Clear input
+      setComment("");
     } catch (error) {
       console.error("Comment failed:", error);
     } finally {

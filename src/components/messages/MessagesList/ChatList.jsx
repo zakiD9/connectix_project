@@ -1,3 +1,4 @@
+import { useMessageStore } from "../../../store/messageStore";
 import Input from "../../Input";
 import MenuList from "../../MenuList";
 import RoundedInput from "../../roundedinput";
@@ -6,7 +7,8 @@ import UserChatComp from "./UserChatComp";
 
 
 
-export default function ChatList({setSelectedChat,selectedChat}){
+export default function ChatList(){
+const {selectedChat,setSelectedChat}=useMessageStore();
 
     return(
         <div className="mx-4 p-3 rounded-lg h-screen shadow  bg-white flex-col w-1/4">

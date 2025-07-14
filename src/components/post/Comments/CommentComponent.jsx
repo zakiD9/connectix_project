@@ -1,7 +1,5 @@
 import { useState } from "react";
 import CommentLike from "../../LikeComment";
-import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
-import { PostreplyComment } from "../../../services/commentService";
 import NoBgButton from "../../nobgbutton";
 import SendReply from "../../SendReply";
 
@@ -41,12 +39,12 @@ export default function Comment({ comment }) {
         </div>
       </div>
 
-      {showReplyInput && (<SendReply id={comment.id} />)}
+      {showReplyInput && (<SendReply  id={comment.id} />)}
 
       {showReplies && comment.replies?.length > 0 && (
           <div className="ml-10 space-y-2">
          {comment.replies.map((reply) => ( 
-            <Comment key={reply.id} comment={reply} /> // reusing the same component
+            <Comment id={reply.id} comment={reply} />
           ))}
          </div>
        )} 

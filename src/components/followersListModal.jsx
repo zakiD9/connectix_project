@@ -15,7 +15,7 @@ export default function FollowersDialog({ open, onOpenChange, list, type = "foll
   setLoading(true);
   try {
     const response = isFollowers ? await getMyFollowers() : await getMyFollowing();
-    setUsers(response);
+    setUsers(response.data);
   } catch (error) {
     console.error(error);
   } finally {

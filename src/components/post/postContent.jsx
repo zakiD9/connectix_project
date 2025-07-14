@@ -7,7 +7,6 @@ import { usePostStore } from "../../store/postStore";
 function PostContent({
   onCommentClick,
   text = "What's on your mind?",
-  hashtags = [],
   image = [],
   likes = 0,
   comments = 0,
@@ -23,13 +22,6 @@ function PostContent({
       ) : (
         <div className="text-gray-700 text-sm mb-2">
           {text}
-          {hashtags.length > 0 && (
-            <span className="ml-1">
-              {hashtags.map((tag, i) => (
-                <span key={i} className="text-primary hover:underline mr-1">#{tag}</span>
-              ))}
-            </span>
-          )}
         </div>
       )}
 

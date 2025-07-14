@@ -1,6 +1,7 @@
 import { createPost, deletePost, getPostById, updatePost } from "../services/postService";
 import { create } from "zustand";
 import { getPosts } from '../services/postService';
+import { getCommentsByPostId } from "../services/commentService";
 
 
 export const usePostStore = create((set) => ({
@@ -8,6 +9,7 @@ export const usePostStore = create((set) => ({
     postbyID: null,
     activeMenu: 'feed',
     onEdit:'',
+    comments: [],
     selectedPost:null,
     setOnEdit:(edit)=>set({onEdit:edit}),
     setSelectedPost:(postId)=>set({selectedPost:postId}),
@@ -34,7 +36,7 @@ export const usePostStore = create((set) => ({
         try {
             const response = await createPost(formData);
             console.log("Post created successfully:", response);
-            set({ text: "", images: [] }); // Clear the input after posting
+            set({ text: "", images: [] });
         } catch (error) {
             console.error("Error creating post:", error.message);
             alert(error.message || "Failed to create post");
@@ -50,7 +52,16 @@ export const usePostStore = create((set) => ({
       console.error("Error fetching posts:", error);
     }
   },
-  
+
+  fetchComments:async (selectedPost)=> {
+      try {
+        const response = await getCommentsByPostId(selectedPost);
+        set({comments:response.data});
+      } catch {
+        set({comments:[]});
+      }
+    },
+
   getPostById: async (postId) => {
     try {
       const response = await getPostById(postId);

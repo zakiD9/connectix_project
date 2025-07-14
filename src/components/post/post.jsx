@@ -13,7 +13,6 @@ function Post({ post, onCommentClick, onSelectpostList, SelectedPostList }) {
       <PostContent
         postId={post.id}
         text={post.title}
-        hashtags={post.hashtags}
         image={post.media}
         onCommentClick={onCommentClick}
       />

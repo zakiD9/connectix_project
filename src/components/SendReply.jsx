@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { PostreplyComment } from "../services/commentService";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
+import { usePostStore } from "../store/postStore";
 
 export default function SendReply({ id }) {
   const [writeReply, setWriteReply] = useState("");
   const [animate, setAnimate] = useState(false);
+  const {selectedPost}=usePostStore();
 
   const handleReplySubmit = async () => {
     if (!writeReply.trim()) return;
-
+    console.log(id,writeReply,selectedPost);
     try {
       setAnimate(true);
-      await PostreplyComment(id, writeReply);
+      await PostreplyComment(id,writeReply,selectedPost);
       setWriteReply("");
     } catch (err) {
       console.error("Reply failed", err);

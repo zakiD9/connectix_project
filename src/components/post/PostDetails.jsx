@@ -21,6 +21,7 @@ useEffect(() => {
       const postId = selectedPost;
       try {
         const response = await getPostById(postId);
+        console.log(response.data);
         setPostDetails(response.data);
         console.log("post Details:",postDetails);
       } catch (error) {
