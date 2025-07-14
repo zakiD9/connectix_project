@@ -1,4 +1,4 @@
-import SideBarMenu from "../components/layout/sideBarinfo";
+import SideBarMenu from "../components/layout/SideBarinfo";
 import AccountSettings from "../components/SettingsComponent";
 import { useAppNavigation } from "../store/navigationApp";
 import { usePostStore } from "../store/postStore";

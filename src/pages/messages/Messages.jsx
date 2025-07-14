@@ -1,6 +1,4 @@
 import SideBar from "../../components/layout/SideBar";
-import SideBarMenu from "../../components/layout/sideBarinfo";
-import RightSideBar from "../../components/layout/RightSideBar";
 import { usePostStore } from "../../store/postStore";
 import { useAppNavigation } from "../../store/navigationApp";
 import ChatList from "../../components/messages/MessagesList/ChatList";
