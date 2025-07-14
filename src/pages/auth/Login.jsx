@@ -4,6 +4,7 @@ import GoogleButton from '../../components/googleButton';
 import SignUpOrIn from '../../components/signuporin';
 import Check from '../../components/check';
 import { useAuthStore } from '../../store/authStore';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
  const {
     email,
@@ -14,10 +15,13 @@ const Login = () => {
     successMessage,
     login
   } = useAuthStore();
-
+const navigate =useNavigate();
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     await login();
+    if(localStorage.getItem('token')){
+      navigate('/');
+    }
   };
 
   return (
@@ -42,7 +46,7 @@ const Login = () => {
   )}
         <Button text="Login" type="submit" />
         <a href="/ForgetPassword" className="text-center w-fit self-center  text-sm hover:underline  text-gray-500">forget password?</a>
-        <h2 className="text-center text-sm text-black">don't have an account? <a href="/SignUp"  className="text-blue-500 hover:underline text-primary  font-bold">Sign Up</a></h2>
+        <h2 className="text-center text-sm text-black">don't have an account? <a href="/SignUp"  className="hover:underline text-primary  font-bold">Sign Up</a></h2>
       </form> 
     </div>
   );
