@@ -24,13 +24,12 @@ const isLoading = useAuthStore((state) => state.isLoading);
 useEffect(() => {
   const token = localStorage.getItem('token');
   if (token) {
-    setUser({ token }); // or fetch real user
+    setUser({ token });
   } else {
     logout();
   }
   setLoading(false);
 }, []);
-
 
 if (isLoading) return <div>Loading...</div>;
 
