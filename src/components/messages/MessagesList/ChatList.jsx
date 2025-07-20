@@ -10,8 +10,11 @@ import UserChatComp from "./UserChatComp";
 export default function ChatList(){
 const {selectedChat,setSelectedChat}=useMessageStore();
 
+ const handleChoosingChat = (chat) => {
+  setSelectedChat(chat);
+ }
     return(
-        <div className="mx-4 p-3 rounded-lg h-screen shadow  bg-white flex-col w-1/4">
+        <div className={`md:mx-4 p-3 rounded-lg h-screen shadow w-full ${selectedChat ? 'hidden' : 'block'} bg-white md:block flex-col md:w-1/4`}>
         <div className="flex justify-between p-2">
   <div>
     <h1 className="text-lg font-semibold text-gray-900">Message</h1>
@@ -42,7 +45,7 @@ const {selectedChat,setSelectedChat}=useMessageStore();
         <RoundedInput placeholder="Search Chart"/>
         <div className="mt-10">
             {[1,2,3,4,5].map((chat)=>
-            (<UserChatComp isSelected={selectedChat===chat} onClick={()=>setSelectedChat(chat)} key={chat}/>)
+            (<UserChatComp isSelected={selectedChat===chat} onClick={handleChoosingChat} key={chat}/>)
         )}
         </div>
         

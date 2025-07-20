@@ -8,10 +8,10 @@ const SideBar = ({ activeMenu, onMenuSelect }) => {
   initial={{ x: -100, opacity: 0 }}
   animate={{ x: 0, opacity: 1 }}
   transition={{ duration: 0.4, ease: "easeOut" }}
-  className="fixed left-0 top-0 z-30 h-screen w-20 flex flex-col border-r-2 bg-white"
+  className="fixed md:left-0 md:top-0 z-30 bottom-0 w-full h-16 md:h-screen md:w-20 flex md:flex-col border-t-2 md:border-r-2 bg-white"
 >
 
-      <div className="flex flex-col items-center pt-16 space-y-4 flex-shrink-0">
+      <div className="flex w-full items-center justify-around md:flex-col md:pt-16 md:space-y-4">
         <div
            className={`transition-all duration-300 ease-in-out flex items-center justify-center w-12 h-12 cursor-pointer ${
     activeMenu === 'feed' ? 'bg-blue-50 scale-105' : 'hover:bg-gray-100'
@@ -64,7 +64,7 @@ const SideBar = ({ activeMenu, onMenuSelect }) => {
       {/* Spacer */}
       <div className="flex-1"></div>
       {/* Bottom user section */}
-      <div className="flex flex-col  items-center pb-4 space-y-3">
+      <div className=" flex-col hidden md:flex items-center pb-4 space-y-3">
         <img
           src="https://randomuser.me/api/portraits/men/32.jpg"
           alt="User"

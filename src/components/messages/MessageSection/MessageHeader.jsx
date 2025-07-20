@@ -1,12 +1,18 @@
 import { HiPhone } from "react-icons/hi";
 import MenuList from "../../MenuList";
 import { FiEdit, FiTrash2, FiMoreVertical } from "react-icons/fi";
+import { useMessageStore } from "../../../store/messageStore";
 
 
 export default function MessageHeader({setShowUserChatDetails}){
+  const{setSelectedChat}= useMessageStore();
+  const onBack = () =>{
+    setSelectedChat(null);
+  }
     return(
         <div className="flex justify-between items-center">
                     <div className="flex items-center">
+                      <button onClick={onBack}  className="md:hidden p-2 text-primary rounded-full hover:bg-gray-50 mr-2">🔙 رجوع</button>
                          <img
                           src="walo"
                           alt="walo"

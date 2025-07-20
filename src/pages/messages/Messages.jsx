@@ -19,11 +19,7 @@ const handleMenuSelect = (menu) => {
   return (
     <div className="sticky min-h-screen bg-[#F8FAFC] w-full">
       <SideBar activeMenu="messages" onMenuSelect={handleMenuSelect} />
-      <div className="ml-20">
-        <NavBar />
-        </div>
-      
-      <div className="ml-20 flex mt-3">
+      <div className="md:ml-20 flex md:mt-3">
         <ChatList />
         <MessageSection setShowUserChatDetails={setShowUserChatDetails}/>
       </div>

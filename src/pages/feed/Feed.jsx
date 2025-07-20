@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import SideBarMenu from "../../components/layout/sideBarinfo";
 import NavBar from "../../components/layout/navBar";
 import RightSideBar from "../../components/layout/rightSideBar";
 import Post from "../../components/post/post";
@@ -10,6 +9,7 @@ import { useCommentStore } from "../../store/commentStore";
 import PostDetailsPopup from "../../components/post/PostDetails";
 import { useSearchStore } from "../../store/searchStore";
 import SearchComponent from "../../components/SearchComponent";
+import SideBar from "../../components/layout/sideBar";
 
 function Feed() {
   const {
@@ -46,10 +46,10 @@ function Feed() {
 
   return (
     <div className="relative min-h-screen bg-[#F8FAFC]">
-      <SideBarMenu activeMenu={activeMenu} onMenuSelect={handleMenuSelect} />
+      <SideBar activeMenu={activeMenu} onMenuSelect={handleMenuSelect} />
       <RightSideBar variant="feed" />
 
-      <div className="ml-[20rem] mr-[20rem]">
+      <div className="md:ml-[5rem] md:mr-[20rem]">
         <NavBar />
 
         {results.length > 0 ? (

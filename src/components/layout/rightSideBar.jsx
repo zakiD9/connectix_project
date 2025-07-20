@@ -6,7 +6,7 @@ const RightSideBar = ({variant,isMyProfile}) => {
 
 if (variant === 'profile') {
   return (
-    <aside className="fixed right-0 top-0 z-20 h-screen w-80 bg-white flex flex-col border-l border-gray-200">
+    <aside className="fixed right-0  top-0 z-20 h-screen w-80 bg-white flex flex-col border-l border-gray-200">
        <UserBar/>
       <ContactInformations isMyProfile={isMyProfile}/>
       <FollowingList />
@@ -16,7 +16,7 @@ if (variant === 'profile') {
 }
 
   return (
-  <aside className="fixed right-0 top-0 h-screen w-80  bg-white flex flex-col border-l border-gray-200">
+  <aside className="fixed right-0 top-0 h-screen w-80 hidden md:block  bg-white flex-col border-l border-gray-200">
     <UserBar />
     <FriendsSuggestion />
   </aside>
