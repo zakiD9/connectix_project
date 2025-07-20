@@ -28,7 +28,7 @@ export default function ChatSpace() {
   };
 
   return (
-    <div className="flex flex-col mt-3 py-3 overflow-y-auto bg-gray-100 rounded-lg transition-all duration-300 ease-in">
+    <div className="flex flex-col mb-14 md:mb-0 mt-3 py-3 overflow-y-auto bg-gray-100 rounded-lg transition-all duration-300 ease-in">
       
       <div className="bg-white flex sticky top-0 self-center w-28 rounded-lg p-2 animate-fadeIn">
         <h2>Today, jan 24</h2>
@@ -42,8 +42,8 @@ export default function ChatSpace() {
         ))}
       </div>
 
-      <div className="flex sticky bottom-0 mx-3 justify-center transition-all duration-200 ease-in">
-        <div className="flex-1">
+      <div className="flex sticky  bottom-0 mx-3 justify-center transition-all duration-200 ease-in">
+        <div className="flex-1 ">
           <ChatRoundedInput
             value={input}
             onChange={(e) => setInput(e.target.value)}

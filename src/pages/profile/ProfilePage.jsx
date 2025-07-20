@@ -1,5 +1,4 @@
 import SideBar from "../../components/layout/sideBar";
-import SideBarMenu from "../../components/layout/sideBarinfo";
 import RightSideBar from "../../components/layout/rightSideBar";
 import ProfileComp from "../../components/Profilecomp";
 import MakePost from "../../components/post/createpost";
@@ -76,9 +75,9 @@ const{id}=useParams();
  },[id])
   return (
     <div className="relative min-h-screen bg-[#F8FAFC]">
-      <SideBarMenu activeMenu={"profile"} onMenuSelect={handleMenuSelect} />
+      <SideBar activeMenu={"profile"} onMenuSelect={handleMenuSelect} />
     <RightSideBar isMyProfile={isMyprofile} setdialogvariant={setShowEmailDialog} variant={"profile"} />
-      <div className="ml-[20rem] mr-[20rem]">
+      <div className="md:ml-[5rem] md:mr-[20rem]">
         <NavBar />
         {results.length>0 ? (<SearchComponent />) : (<div className="flex-1 flex-col justify-center items-start px-5 py-4">
           <ProfileComp isMyProfile={isMyprofile} /> {/* ProfileComp will get user from store */}
