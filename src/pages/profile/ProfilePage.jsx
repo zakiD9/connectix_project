@@ -80,7 +80,7 @@ const{id}=useParams();
       <div className="md:ml-[5rem] md:mr-[20rem]">
         <NavBar />
         {results.length>0 ? (<SearchComponent />) : (<div className="flex-1 flex-col justify-center items-start px-5 py-4">
-          <ProfileComp isMyProfile={isMyprofile} /> {/* ProfileComp will get user from store */}
+          <ProfileComp isMyProfile={isMyprofile} /> 
             {isMyprofile && (<div className="w-full mb-4"><MakePost /></div>)}
           {(posts || []).map((post) => (
             <Post key={post.id} post={post} onCommentClick={()=>{setSelectedPost(post.id)}} onSelectpostList={()=>setSelectedPostList(post.id)} SelectedPostList={selectedPostList} />
